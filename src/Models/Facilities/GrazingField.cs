@@ -8,7 +8,7 @@ using Trestlebridge.Actions;
 namespace Trestlebridge.Models.Facilities {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 20; 
+        private int _capacity = 1; 
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
@@ -19,23 +19,18 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        // public IGrazing GetCount(IGrazing _animals) {
-        //     return _animals.Count();
-        // }
+        public int Count {
+            get {
+                return _animals.Count;
+            } 
+        }
+        
+         
 
+        
         public void AddResource (IGrazing animal)
         {
-            if (_animals.Count <= Capacity) {
             this._animals.Add(animal);
-            
-            } else {
-                Console.WriteLine("There is not enough room in this field, please select another facility!");
-                // ChooseGrazingField.CollectInput(Farm, animal);
-                //  foreach (var field in GrazingFields)
-                //     {
-                //         Console.WriteLine(animal);
-                //     }
-            }
         }
 
         public void AddResource (List<IGrazing> animals) 

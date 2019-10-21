@@ -3,6 +3,8 @@ using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Facilities;
+
 
 namespace Trestlebridge.Actions {
     public class ChooseGrazingField {
@@ -20,10 +22,17 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Place the animal where?");
 
             Console.Write ("> ");
-            int choice = Int32.Parse(Console.ReadLine ());
+            int choice = Int32.Parse(Console.ReadLine ()); //take what the user enters
             int index = choice - 1; //-1 to stay within the range
-
+            int count = farm.GrazingFields[index].Count; //get how many animals are in that field
+            double capacity = farm.GrazingFields[index].Capacity; 
+            if ( count < capacity ) {
             farm.GrazingFields[index].AddResource(animal);
+            } else {
+                Console.WriteLine("There is not enough room in this field, hit enter to select a different field.");
+                Console.ReadLine();
+                CollectInput(farm, animal);
+            }
 
             /*
                 Couldn't get this to work. Can you?
