@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Animals {
-    public class Duck: IResource, IGrazing, IMeatProducing {
+    public class Duck: IResource, IFeed, IMeatProducing {
 
         private Guid _id = Guid.NewGuid();
         private double _meatProduced = .2;
@@ -14,12 +14,12 @@ namespace Trestlebridge.Models.Animals {
             }
         }
 
-        public double GrassPerDay { get; set; } = .8;   // FeedPerDay
         public string Type { get; } = "Duck";
+        public double FeedPerDay { get; set; } = .8;
 
         // Methods
         public void Graze () {
-            Console.WriteLine($"Duck {this._shortId} just ate {this.GrassPerDay}kg of feed");
+            Console.WriteLine($"Duck {this._shortId} just ate {this.FeedPerDay}kg of feed");
         }
 
         public double Butcher () {
