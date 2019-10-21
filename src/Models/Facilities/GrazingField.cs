@@ -20,14 +20,19 @@ namespace Trestlebridge.Models.Facilities {
 
         public void AddResource (IGrazing animal)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            if (_animals.Count < 20) {
+            this._animals.Add(animal);
+            
+            } else {
+                Console.WriteLine("There is not enough room in this field!");
+            }
         }
 
         public void AddResource (List<IGrazing> animals) 
         {
+            
             // TODO: implement this...
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public override string ToString()

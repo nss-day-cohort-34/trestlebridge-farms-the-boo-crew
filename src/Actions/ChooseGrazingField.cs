@@ -21,8 +21,9 @@ namespace Trestlebridge.Actions {
 
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
+            int index = choice - 1; //-1 to stay within the range
 
-            farm.GrazingFields[choice].AddResource(animal);
+            farm.GrazingFields[index].AddResource(animal);
 
             /*
                 Couldn't get this to work. Can you?

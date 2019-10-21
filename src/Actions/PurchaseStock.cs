@@ -27,6 +27,8 @@ namespace Trestlebridge.Actions {
                     break;
                 case 2:
                     ChooseGrazingField.CollectInput (farm, new Cow ());
+                    // Console.WriteLine("Press enter to return to the main menu.");
+                    // Console.ReadKey();
                     break;
                 case 3:
                     ChooseGrazingField.CollectInput (farm, new Duck ());
