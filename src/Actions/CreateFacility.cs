@@ -30,13 +30,13 @@ namespace Trestlebridge.Actions
                     Console.ReadKey();
                     break;
                 case 2:
-                    farm.AddPlowedField(new PlowedField());
+                    // farm.AddPlowedField(new PlowedField());
                     Console.WriteLine("You created a plowed field!");
                     Console.WriteLine("Press enter to return to the main menu.");
                     Console.ReadKey();
                     break;
                 case 3:
-                    farm.AddNaturalField(new NaturalField());
+                    // farm.AddNaturalField(new NaturalField());
                     Console.WriteLine("You created a natural field!");
                     Console.WriteLine("Press enter to return to the main menu.");
                     Console.ReadKey();
