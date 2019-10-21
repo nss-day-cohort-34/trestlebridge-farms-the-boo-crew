@@ -24,26 +24,38 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse (choice)) {
                 case 1:
                     ChooseGrazingField.CollectInput (farm, new Chicken ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
                 case 2:
                     ChooseGrazingField.CollectInput (farm, new Cow ());
                     Console.WriteLine("Press enter to return to the main menu.");
-                    Console.ReadKey();
+                    Console.ReadKey(); //this lets the user hit enter
                     break;
                 case 3:
                     ChooseGrazingField.CollectInput (farm, new Duck ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
                 case 4:
                     ChooseGrazingField.CollectInput (farm, new Goat ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
                 case 5:
                     ChooseGrazingField.CollectInput (farm, new Ostrich ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
                 case 6:
                     ChooseGrazingField.CollectInput (farm, new Pig ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
                 case 7:
                     ChooseGrazingField.CollectInput (farm, new Sheep ());
+                    Console.WriteLine("Press enter to return to the main menu.");
+                    Console.ReadKey();
                     break;
 
                 default:

@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Actions;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -25,6 +26,11 @@ namespace Trestlebridge.Models.Facilities {
             
             } else {
                 Console.WriteLine("There is not enough room in this field, please select another facility!");
+                // ChooseGrazingField.CollectInput(Farm, animal);
+                //  foreach (var field in GrazingFields)
+                //     {
+                //         Console.WriteLine(animal);
+                //     }
             }
         }
 
