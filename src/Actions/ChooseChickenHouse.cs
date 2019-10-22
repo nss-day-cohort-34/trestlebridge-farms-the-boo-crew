@@ -13,7 +13,7 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.ChickenHouses.Count; i++) //need to be duckhouse list
             {
-                Console.WriteLine ($"{i + 1}. Chicken house");
+                Console.WriteLine ($"{i + 1}. Chicken house ({farm.ChickenHouses[i].Count} existing animals)");
             }
 
             Console.WriteLine ();
