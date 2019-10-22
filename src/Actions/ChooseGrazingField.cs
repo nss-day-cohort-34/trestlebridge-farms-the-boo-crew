@@ -13,7 +13,7 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Grazing Field");
+                Console.WriteLine ($"{i + 1}. Grazing Field ({farm.GrazingFields[i].Count} existing animals)");
             }
 
             Console.WriteLine ();
@@ -35,7 +35,7 @@ namespace Trestlebridge.Actions {
                 CollectInput(farm, animal);
             }
             }
-             catch (ArgumentOutOfRangeException ex)
+             catch (ArgumentOutOfRangeException )
             {
                 Console.WriteLine("Hit enter to select the correct facility dummy");
                 Console.ReadLine();
