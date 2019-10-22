@@ -12,10 +12,17 @@ namespace Trestlebridge.Actions {
 
             for (int i = 0; i < farm.DuckHouses.Count; i++) //need to be duckhouse list
             {
-               Console.WriteLine ($"{i + 1}.Duck house ({farm.DuckHouses[i].Count} existing animals)");
+                if (farm.DuckHouses[i].Capacity > farm.DuckHouses[i].Count)
+                {
+                    Console.WriteLine($"{i + 1}. Duck house ({farm.DuckHouses[i].Count} existing animals)");
+                }
+                else
+                {
+                    Console.WriteLine($"{i + 1}. Duck house is at capacity with ({farm.DuckHouses[i].Count}) Ducks");
+                }
             }
 
-            Console.WriteLine ();
+            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
             if (farm.DuckHouses.Count >= 1) {

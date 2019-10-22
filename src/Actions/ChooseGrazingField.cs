@@ -5,16 +5,28 @@ using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
 
-namespace Trestlebridge.Actions {
-    public class ChooseGrazingField {
-        public static void CollectInput (Farm farm, IGrazing animal) {
-            Console.Clear ();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++) {
-                Console.WriteLine ($"{i + 1}. Grazing Field ({farm.GrazingFields[i].Count} existing animals)");
+namespace Trestlebridge.Actions
+{
+    public class ChooseGrazingField
+    {
+        public static void CollectInput(Farm farm, IGrazing animal)
+        {
+            Console.Clear();
+
+            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            {
+                if (farm.GrazingFields[i].Capacity > farm.GrazingFields[i].Count)
+                {
+                    Console.WriteLine($"{i + 1}. grazing field ({farm.GrazingFields[i].Count} existing animals)");
+                }
+                else
+                {
+                    Console.WriteLine($"{i + 1}. grazing field is at capacity with ({farm.GrazingFields[i].Count}) animals");
+                }
             }
 
-            Console.WriteLine ();
+            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
             if (farm.GrazingFields.Count >= 1) {
