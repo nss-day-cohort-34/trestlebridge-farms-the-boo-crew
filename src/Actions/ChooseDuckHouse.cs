@@ -20,27 +20,26 @@ namespace Trestlebridge.Actions {
             // How can I output the type of animal chosen here?
             if (farm.DuckHouses.Count >= 1) {
                 Console.WriteLine ($"Place the animal where?");
+                Console.Write ("> ");
+                try {
+                    int choice = Int32.Parse (Console.ReadLine ()); //take what the user enters
+                    int index = choice - 1; //-1 to stay within the range
+                    int count = farm.DuckHouses[index].Count; //get how many animals are in that field
+                    double capacity = farm.DuckHouses[index].Capacity;
+                    if (count < capacity) {
+                        farm.DuckHouses[index].AddResource (animal);
+                    } else {
+                        Console.WriteLine ("There is not enough room in the duck house, hit enter to select a different house.");
+                        Console.ReadLine ();
+
+                    }
+                } catch (ArgumentOutOfRangeException) {
+                    Console.WriteLine ("Hit enter to select the correct facility dummy");
+                    Console.ReadLine ();
+                    CollectInput (farm, animal);
+                }
             } else {
                 Console.WriteLine ("You must create a duck house before purchasing a chicken. Press enter to return to the main menu");
-                Console.ReadLine();
-                CollectInput (farm, animal);
-            }
-
-            Console.Write ("> ");
-            try {
-                int choice = Int32.Parse (Console.ReadLine ()); //take what the user enters
-                int index = choice - 1; //-1 to stay within the range
-                int count = farm.DuckHouses[index].Count; //get how many animals are in that field
-                double capacity = farm.DuckHouses[index].Capacity;
-                if (count < capacity) {
-                    farm.DuckHouses[index].AddResource (animal);
-                } else {
-                    Console.WriteLine ("There is not enough room in the duck house, hit enter to select a different house.");
-                    Console.ReadLine ();
-                
-                }
-            } catch (ArgumentOutOfRangeException) {
-                Console.WriteLine ("Hit enter to select the correct facility dummy");
                 Console.ReadLine ();
                 CollectInput (farm, animal);
             }

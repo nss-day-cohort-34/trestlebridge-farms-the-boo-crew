@@ -19,12 +19,6 @@ namespace Trestlebridge.Actions {
             // How can I output the type of animal chosen here?
             if (farm.GrazingFields.Count >= 1) {
                 Console.WriteLine ($"Place the animal where?");
-            } else {
-                Console.WriteLine ("You must create a grazing field before purchasing a chicken. Press enter to return to the main menu");
-                Console.ReadLine ();
-                // CollectInput (farm, animal);
-            }
-
             Console.Write ("> ");
             try {
                 int choice = Int32.Parse (Console.ReadLine ()); //take what the user enters
@@ -43,6 +37,12 @@ namespace Trestlebridge.Actions {
                 Console.ReadLine ();
                 CollectInput (farm, animal);
             }
+            } else {
+                Console.WriteLine ("You must create a grazing field before purchasing a chicken. Press enter to return to the main menu");
+                Console.ReadLine ();
+                // CollectInput (farm, animal);
+            }
+
 
             /*
                 Couldn't get this to work. Can you?
