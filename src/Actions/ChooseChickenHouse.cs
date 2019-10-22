@@ -10,12 +10,20 @@ namespace Trestlebridge.Actions {
         public static void CollectInput (Farm farm, IFeed animal) {
             Console.Clear ();
 
-            for (int i = 0; i < farm.ChickenHouses.Count; i++) //need to be duckhouse list
+            for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Chicken house ({farm.ChickenHouses[i].Count} existing chicken(s))");
+
+                if (farm.ChickenHouses[i].Capacity > farm.ChickenHouses[i].Count)
+                {
+                    Console.WriteLine($"{i + 1}. Chicken house ({farm.ChickenHouses[i].Count} existing animals)");
+                }
+                else
+                {
+                    Console.WriteLine($"{i + 1}. Chicken house is at capacity with ({farm.ChickenHouses[i].Count}) chickens");
+                }
             }
 
-            Console.WriteLine ();
+            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
             if (farm.ChickenHouses.Count >= 1) { // if the facility exists...
