@@ -29,32 +29,32 @@ namespace Trestlebridge.Actions
             Console.WriteLine();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
-
-            Console.Write("> ");
-            try
-            {
-                int choice = Int32.Parse(Console.ReadLine()); //take what the user enters
+            if (farm.GrazingFields.Count >= 1) {
+                Console.WriteLine ($"Place the animal where?");
+            Console.Write ("> ");
+            try {
+                int choice = Int32.Parse (Console.ReadLine ()); //take what the user enters
                 int index = choice - 1; //-1 to stay within the range
                 int count = farm.GrazingFields[index].Count; //get how many animals are in that field
                 double capacity = farm.GrazingFields[index].Capacity;
-                if (count < capacity)
-                {
-                    farm.GrazingFields[index].AddResource(animal);
+                if (count < capacity) {
+                    farm.GrazingFields[index].AddResource (animal);
+                } else {
+                    Console.WriteLine ("There is not enough room in this field, hit enter to select a different field.");
+                    Console.ReadLine ();
+                    CollectInput (farm, animal);
                 }
-                else
-                {
-                    Console.WriteLine("There is not enough room in this field, hit enter to select a different field.");
-                    Console.ReadLine();
-                    CollectInput(farm, animal);
-                }
+            } catch (ArgumentOutOfRangeException) {
+                Console.WriteLine ("Hit enter to select the correct facility dummy");
+                Console.ReadLine ();
+                CollectInput (farm, animal);
             }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Hit enter to select the correct facility dummy");
-                Console.ReadLine();
-                CollectInput(farm, animal);
+            } else {
+                Console.WriteLine ("You must create a grazing field before purchasing a chicken. Press enter to return to the main menu");
+                Console.ReadLine ();
+                // CollectInput (farm, animal);
             }
+
 
             /*
                 Couldn't get this to work. Can you?

@@ -7,12 +7,12 @@ using Trestlebridge.Actions;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IFacility<IFeed>
+    public class NaturalField : IFacility<IGrazing>
     {
-        private int _capacity = 15;
+        private int _capacity = 20;
         private Guid _id = Guid.NewGuid();
 
-        private List<IFeed> _chickens = new List<IFeed>();
+        private List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity
         {
@@ -26,19 +26,19 @@ namespace Trestlebridge.Models.Facilities
         {
             get
             {
-                return _chickens.Count;
+                return _animals.Count;
             }
         }
 
 
 
 
-        public void AddResource(IFeed chicken)
+        public void AddResource(IGrazing animal)
         {
-            this._chickens.Add(chicken);
+            this._animals.Add(animal);
         }
 
-        public void AddResource(List<IFeed> chickens)
+        public void AddResource(List<IGrazing> animals)
         {
 
             // TODO: implement this...
@@ -50,8 +50,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Chicken house {shortId} has {this._chickens.Count} chickens\n");
-            this._chickens.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
+            this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
