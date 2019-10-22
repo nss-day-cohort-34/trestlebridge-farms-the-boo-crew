@@ -6,36 +6,51 @@ using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
 
 
-namespace Trestlebridge.Actions {
-    public class ChooseChickenHouse {
-        public static void CollectInput (Farm farm, IFeed animal) {
+namespace Trestlebridge.Actions
+{
+    public class ChooseChickenHouse
+    {
+        public static void CollectInput(Farm farm, IFeed animal)
+        {
             Console.Clear();
 
-            for (int i = 0; i < farm.ChickenHouses.Count; i++) //need to be duckhouse list
+            for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Chicken house ({farm.ChickenHouses[i].Count} existing animals)");
+
+                if (farm.ChickenHouses[i].Capacity > farm.ChickenHouses[i].Count)
+                {
+                    Console.WriteLine($"{i + 1}. Chicken house ({farm.ChickenHouses[i].Count} existing animals)");
+                }
+                else
+                {
+                    Console.WriteLine($"{i + 1}. Chicken house is at capacity with ({farm.ChickenHouses[i].Count}) chickens");
+                }
             }
 
-            Console.WriteLine ();
+            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Place the animal where?");
+            Console.WriteLine($"Place the animal where?");
 
-            Console.Write ("> ");
-            try {
-            int choice = Int32.Parse(Console.ReadLine ()); //take what the user enters
-            int index = choice - 1; //-1 to stay within the range
-            int count = farm.ChickenHouses[index].Count; //get how many animals are in that field
-            double capacity = farm.ChickenHouses[index].Capacity; 
-            if ( count < capacity ) {
-            farm.ChickenHouses[index].AddResource(animal);
-            } else {
-                Console.WriteLine("There is not enough room in the chicken house, hit enter to select a different house.");
-                Console.ReadLine();
-                CollectInput(farm, animal);
+            Console.Write("> ");
+            try
+            {
+                int choice = Int32.Parse(Console.ReadLine()); //take what the user enters
+                int index = choice - 1; //-1 to stay within the range, because cpu's start counting with 0
+                int count = farm.ChickenHouses[index].Count; //get how many animals are in that field
+                double capacity = farm.ChickenHouses[index].Capacity;
+                if (count < capacity)
+                {
+                    farm.ChickenHouses[index].AddResource(animal);
+                }
+                else
+                {
+                    Console.WriteLine("There is not enough room in the chicken house, hit enter to select a different house.");
+                    Console.ReadLine();
+                    CollectInput(farm, animal);
+                }
             }
-            }
-             catch (ArgumentOutOfRangeException )
+            catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("Hit enter to select the correct facility dummy");
                 Console.ReadLine();
