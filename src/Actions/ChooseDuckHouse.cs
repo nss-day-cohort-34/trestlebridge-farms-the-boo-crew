@@ -36,7 +36,7 @@ namespace Trestlebridge.Actions {
                 CollectInput(farm, animal);
             }
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException )
             {
                 Console.WriteLine("Hit enter to select the correct facility dummy");
                 Console.ReadLine();
