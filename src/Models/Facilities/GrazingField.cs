@@ -24,6 +24,13 @@ namespace Trestlebridge.Models.Facilities {
                 return _animals.Count;
             } 
         }
+        // public string AnimalType {
+        //     get {
+        //         return _animals;
+        //     } 
+        // }
+
+
         
          
 
