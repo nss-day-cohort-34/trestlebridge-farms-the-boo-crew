@@ -24,11 +24,38 @@ namespace Trestlebridge.Models.Facilities {
                 return _animals.Count;
             } 
         }
-        // public string AnimalType {
+        // public List AnimalType {
         //     get {
-        //         return _animals;
+        //         foreach (IGrazing animal in _animals)
+        //         {
+        //          animal.
+                    
+        //         }
         //     } 
         // }
+
+        public string GetAnimalType()
+        {
+            StringBuilder output = new StringBuilder();
+           foreach (IGrazing animal in _animals)
+            {
+                // count += 1;
+                int count = 0;
+                if (animal.Type == animal.Type) {
+                output.Append($"This field has {count} {animal.Type}(s) ");
+                count ++;
+                } else {
+                output.Append($"This field has {count + 1} {animal.Type}(s) ");
+
+                }
+                // $"Grazing field {shortId} has {this._animals.Count} animals\n"
+            }
+            return output.ToString();
+
+            // output.Append($"Grazing field {animalType} has {this._animals.Count} animals\n");
+            // this._animals.ForEach(a => output.Append($"   {a}\n"));
+
+        }
 
 
         

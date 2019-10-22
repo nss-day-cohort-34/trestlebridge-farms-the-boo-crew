@@ -18,11 +18,9 @@ namespace Trestlebridge.Actions
             {
                 if (farm.GrazingFields[i].Capacity > farm.GrazingFields[i].Count)
                 {
-                    Console.WriteLine($"{i + 1}. grazing field ({farm.GrazingFields[i].Count} existing animals)");
-                    foreach (IGrazing type in farm.GrazingFields)
-                    {
-                        // Console.WriteLine($"{farm.GrazingFields[i].}");
-                    } 
+                    
+                   string typeOfAnimal = farm.GrazingFields[i].GetAnimalType();
+                    Console.WriteLine($"{i + 1}. grazing field ({farm.GrazingFields[i].Count} existing {typeOfAnimal})");
                 } else
                     {
                         Console.WriteLine($"{i + 1}. grazing field is at capacity with ({farm.GrazingFields[i].Count}) animals");
